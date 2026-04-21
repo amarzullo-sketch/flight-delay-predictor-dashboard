@@ -134,7 +134,6 @@ I tested other versions of the model with different feature sets, but this versi
 ## How to Run the Project
 Run the scripts in this order:
 
-    python Code\combine_files.py
     python Code\is_delayed.py
     python Code\clean_data.py
     python Code\select_features.py

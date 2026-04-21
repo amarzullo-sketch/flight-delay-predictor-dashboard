@@ -164,5 +164,5 @@ If I continued this project, I would:
 - test models for cancellations or severe delays
 
 ## Conclusion
-
+This project helped me build a full machine learning workflow using real flight data. It also showed me how data cleaning, feature selection, and model evaluation all affect final performance.
 

@@ -92,6 +92,9 @@ The final model achieved the following results:
     [[176   1]
      [  8  15]]
 
+![Confusion Matrix](confusion_matrix.png)
+The model achieved 95.5% accuracy on the test set. It performed very well at identifying flights that were not delayed and showed strong precision for delayed flights, although it still missed some actual delays.
+
 This means:
 
 - 176 flights were correctly predicted as not delayed

@@ -1,17 +1,18 @@
 from pathlib import Path
 import pandas as pd
 
-base_path = Path(__file__).resolve().parent
-csv_path = base_path / "combined_flights.csv"
+BASE_DIR = Path(__file__).resolve().parent.parent
+INPUT_PATH = BASE_DIR / "Combined data" / "combined_flights.csv"
+OUTPUT_DIR = BASE_DIR / "Cleaned Data"
+OUTPUT_DIR.mkdir(exist_ok=True)
 
-df = pd.read_csv(csv_path)
-
-df = df[(df["CANCELLED"] == 0) & (df["DIVERTED"] == 0)].copy()
-df = df[df["ARR_DELAY"].notna()].copy()
+df = pd.read_csv(INPUT_PATH)
 
 df["is_delayed"] = (df["ARR_DELAY"] > 15).astype(int)
 
-print(df[["ARR_DELAY", "is_delayed"]].head())
-print(df["is_delayed"].value_counts())
+output_path = OUTPUT_DIR / "flights_with_target.csv"
+df.to_csv(output_path, index=False)
 
-df.to_csv(base_path / "flights_with_target.csv", index=False)
+print(f"Saved file to: {output_path}")
+print(df[["ARR_DELAY", "is_delayed"]].head())
+print(f"Final row count: {len(df)}")
